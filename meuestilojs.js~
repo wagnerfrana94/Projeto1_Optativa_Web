@@ -1,7 +1,0 @@
-
-///Arquivo contendo JavaScript utilizado no site e desenvolvido por Wagner Frana
-
-
-$(function () {
- 	$('[data-toggle="popover"]').popover()
-})
