@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+ 		<title>LOCADORA</title>
+ 		<meta charset="utf-8">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 		<!--Arquivos incorporados para o desenvolvimento do sistema-->
+ 		<link href="css/bootstrap.min.css" rel="stylesheet">
+ 		<script src="js/jquery-3.2.1.min.js"></script>
+ 		<script src="js/bootstrap.min.js"></script>
+ 		<link rel="stylesheet" type="text/css" href="meuestilo.css"/>
+ 		<script type="text/javascript" src="meuestilojs.js"></script>
+ 		<style type="text/css">
+			
+			@media only screen and (max-width: 770px) {
+    			.rodape{
+       				display: block;
+    			}
+  			}
+		</style>
+
+ 		<script>
+ 			$(document).ready(function(){
+ 				$(".bttMenu").click(function(){
+ 					$(".rodape").toggle();
+ 				});	
+ 			});	
+
+ 		</script>	
+ 		
+ 	</head>
+ 	
+ 	<!--Inicio do corpo da página-->
+ 	<body class="bodyLogin">
+ 		<div class="container col-xs-12">
+ 			<!--Componente Navbar usada como componente principal para navegação entre as páginas do sistema  -->
+ 			<nav class="navbar navbar-default divHome">
+ 				<div class="container">
+ 					<!--Em caso de dispositivos menores a navbar terá um button, onde clicando abrirá os elementos da barra de navegação -->			
+ 					<div class="navbar-header">
+ 						<button type="button" class="navbar-toggle bttMenu" data-toggle="collapse"
+ 						data-target="#menu"><span class="glyphicon glyphicon-align-justify spMenu" aria-hidden="true"></span></button>
+ 						
+ 					</div>
+
+ 					<a class="navbar-brand logo2" href="#"><span class="glyphicon glyphicon-film slogo2"><span class="slogo3">FRANLOC</span></span></a>
+
+ 					<div class="collapse navbar-collapse col-xs-12" id="menu">
+
+
+ 						<!--Lista desordenada que serve como link para as páginas iniciais do sistema-->
+ 						<ul class="nav navbar-nav " id="navigation">
+ 							<!--Logo do sistema-->
+ 							<li><img src="IMG/logo1.png" alt="Imagem Logo" class="logo"></li>
+ 							<li class="home"><a href="index.html"><span>Home</span></a></li>
+ 							<li class="filme"><a href="filmes.html"><span>Filmes</span></a></li>
+			 				<li class="cadastro"><a href="cadastro.html"><span>Cadastro</span></a></li>
+			 				<li class="atende"><a href="atendente.html"><span>Atendente</span></a></li>
+			 				<li class="contato"><a href="contatos.html"><span>Infos</span></a></li>
+ 						</ul>
+ 						 	
+ 					</div>	
+ 				</div>	
+ 			</nav>
+
+ 			<div class="container col-md-offset-3 col-md-6 col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6">
+
+ 				<!--Formulário para efetuar o login de um usuário cadastrado no sistema de reservas -->
+ 				<form class="form-horizontal formReserva" action="reservas.html" method="post">
+ 					<h2 class="text-primary">Login do Usuário</h2>
+ 					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		 					<input class="form-control" type="text" name="login" autofocus placeholder="Login do Usuário" required/>
+		 				</div>
+		 			</div>		
+	 				<div class="form-group">	
+						<div class="input-group">
+					    	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		 					<input class="form-control" type="password" name="senha" placeholder="Senha" required/>
+		 				</div>
+		 			</div>	
+		 			
+		 			<div class="form-group">		
+		 				<button class="btn btn-primary col-xs-6 col-xs-offset-3" type="submit" name="submit">Entrar</button>
+		 			</div>	
+		 					
+	 				
+	 				<div class="row">	
+	 					<div class="col-md-4 col-md-offset-4 divLogin">
+		 					<div class="form-group">
+		 						<!-- Para levar o usuário até a página de cadastro -->
+		 						<div class="well well-sm">
+		 							<a class="aCadastrase" href="cadastro.html">Cadastrar-se</a></br>
+		 						</div>
+								<a id ="recuperar_senha" href="" class="alertSenha" data-toggle="modal" data-target="#exampleModal">Esqueci minha senha</a> 
+		 						
+		 					</div>
+		 				</div>
+	 				</div>
+
+	 			</form>
+
+	 			<!--Modal contendo formulário para o usuário informar nova senha-->
+				<div class="modal fade modalSenha" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+				  	<div class="modal-dialog" role="document">
+				    	<div class="modal-content">
+				      		<div class="modal-header">
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        		<h4 class="modal-title" id="exampleModalLabel">Nova Senha</h4>
+				      		</div>
+				      		<div class="modal-body">
+				        		<form method="post" action="">
+				          			<div class="form-group">
+				          				<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+				           	 				<label for="email" class="control-label sr-only">Email:</label>
+				            				<input type="email" class="form-control" id="email" placeholder="Email" required>
+				          				</div>
+				          			</div>
+				          			<div class="form-group">
+				          				<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				           	 				<label for="new_senha" class="control-label sr-only">Nova Senha:</label>
+				            				<input type="text" class="form-control" placeholder="Nova Senha" required="" id="new_senha"/>
+				          				</div>
+				          			</div>
+				        			<div class="modal-footer">
+				        				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				        				<input type="submit" class="btEnviarSenha btn btn-primary" value="Enviar Senha"/>
+				      				</div>	
+
+				        		</form>
+				      		</div>
+				      		
+				   
+				   		</div>
+				  	</div>
+				</div>
+	 			
+	 				
+ 			</div>	
+	 	</div>
+
+	 	<!--Barra de rodape da página-->
+	 	<footer>	
+		 	<div class="rodape navbar navbar-inverse navbar-fixed-bottom">
+		 		<span class="glyphicon glyphicon-envelope"></span><strong> Email: wagnerfrana@hotmail.com</strong></br>
+				<strong>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></strong>
+		 	</div> 
+		</footer> 	
+
+ 			
+ 	</body>
+
+</html>

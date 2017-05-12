@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+ 		<title>LOCADORA</title>
+ 		<meta charset="utf-8">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 		<!--Arquivos incorporados para o desenvolvimento do sistema-->
+ 		<link href="css/bootstrap.min.css" rel="stylesheet">
+ 		<script src="js/jquery-3.2.1.min.js"></script>
+ 		<script src="js/bootstrap.min.js"></script>
+ 		<link rel="stylesheet" type="text/css" href="meuestilo.css"/>
+ 		<script type="text/javascript" src="meuestilojs.js"></script>
+ 		<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 		<style type="text/css">
+ 			h4{
+ 				font-family: 'Source Serif Pro', serif;
+ 				color: white;
+ 			}
+ 		
+			
+			@media only screen and (max-width: 770px) {
+    			.rodape{
+       				display: block;
+    			}
+  			}
+		</style>
+
+ 		<script>
+ 			$(document).ready(function(){
+ 				$(".bttMenu").click(function(){
+ 					$(".rodape").toggle();
+ 				});	
+ 			});	
+
+ 		</script>	
+
+		<script type="text/javascript">
+			
+		</script>	
+ 		
+ 	</head>
+ 	
+ 	<!--Inicio do corpo da página-->
+ 	<body class="bodyHomeInfos">
+ 		<div class="container col-xs-12">
+ 			<!--Componente Navbar usada como componente principal para navegação entre as páginas do sistema  -->
+ 			<nav class="navbar navbar-default divHome">
+ 				<div class="container">
+ 					<!--Em caso de dispositivos menores a navbar terá um button, onde clicando abrirá os elementos da barra de navegação -->			
+ 					<div class="navbar-header">
+ 						<button type="button" class="navbar-toggle bttMenu" data-toggle="collapse"
+ 						data-target="#menu"><span class="glyphicon glyphicon-align-justify spMenu" aria-hidden="true"></span></button>
+ 						
+ 					</div>
+
+ 					<a class="navbar-brand logo2" href="#"><span class="glyphicon glyphicon-film slogo2"><span class="slogo3">FRANLOC</span></span></a>
+
+ 					<div class="collapse navbar-collapse col-xs-12" id="menu">
+
+
+ 						<!--Lista desordenada que serve como link para as páginas iniciais do sistema-->
+ 						<ul class="nav navbar-nav " id="navigation">
+ 							<!--Logo do sistema-->
+ 							<li><img src="IMG/logo1.png" alt="Imagem Logo" class="logo"></li>
+ 							<li class="home"><a href="index.html"><span>Home</span></a></li>
+ 							<li class="filme"><a href="filmes.html"><span>Filmes</span></a></li>
+			 				<li class="cadastro"><a href="cadastro.html"><span>Cadastro</span></a></li>
+			 				<li class="loca"><a href="login_reservas.html"><span>Reservas</span></a></li>
+			 				<li class="atende"><a href="atendente.html"><span>Atendente</span></a></li>
+ 						</ul>
+ 						 	
+ 					</div>
+
+ 				</div>	
+ 			</nav>
+ 			<div class="col-sm-8 col-sm-offset-2 col-xs-12" >
+ 			<!-- Construindo elemento JavaScript Togglable tabs para mostrar informações sobre o sistema e o desenvolvedor do mesmo-->
+
+  				<!-- Componente  Nav tabs -->
+			 	<ul class="nav nav-tabs navbar-default navInfos" role="tablist">
+				    <li role="presentation" class="active"><a href="#contato" aria-controls="contato" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-phone-alt"></span> Contatos</a></li>
+				    <li role="presentation"><a href="#perfil" aria-controls="perfil" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Inf. Pessoais</a></li>
+				    <li role="presentation"><a href="#desc" aria-controls="desc" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-film"></span> Descrição do Sistema</a></li>
+				    
+			  	</ul>
+
+			  	<!-- Tab panes com o conteúdo informativo de cada Nav tab-->
+			  	<div class="tab-content divInfos">
+				    <div role="tabpanel" class="tab-pane active" id="contato">
+				    	<h4>Nome: Wagner Frana</h4>
+				    	<h4>Email: wagnerfrana@hotmail.com</h4>
+				    	<h4>Telefone: (49)98406-9678</h4>
+				    	<div >
+			    			<a class="aRSocial" href="https://www.facebook.com/wagner.frana" target="_blank"><i class="fa fa-facebook-official"></i></a>
+			    			<a class="aRSocial" href="https://www.instagram.com/wagnerfrana/?hl=pt-br" target="_blank"><i class="fa fa-instagram "></i></a>
+			    			<a class="aRSocial" href="https://twitter.com/wag_dale10" target="_blank"><i class="fa fa-twitter "></i></a>
+ 						</div>
+
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="perfil">
+				    	<h4>Nome: Wagner Frana</h4>
+				    	<h4>Estudante de Ciência da Computação - <a class="aInfos" href="https://www.uffs.edu.br/" target="_blank">UFFS</a></h4>
+				    	<h4>Idade: 22 anos</h4>
+				    	<h4>Cidade: Seara/SC</h4>
+				    	<h4>CEP: 89770-000</h4>
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="desc">
+				    	<h4>	Este sistema foi desenvolvido para a disciplina de tópicos avançados em
+				    	desenvolvimento Web, tento como propósito fazer o uso de técnicas e conhecimentos
+				    	aprendidos em aula.
+				    	</h4>
+
+				    </div>
+				    
+			  	</div>
+
+			</div>
+
+
+
+ 		</div>
+
+ 		<!--Barra de rodape da página-->
+ 		<footer>	
+		 	<div class="rodape navbar navbar-inverse navbar-fixed-bottom">
+		 		<span class="glyphicon glyphicon-envelope"></span><strong> Email: wagnerfrana@hotmail.com</strong></br>
+				<strong>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></strong>
+		 	</div> 
+		</footer> 
+
+ 	</body>	
+
+ </html>	
+
+   			

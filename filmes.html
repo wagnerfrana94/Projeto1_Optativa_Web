@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+ 		<title>LOCADORA</title>
+ 		<meta charset="utf-8">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 		<!--Arquivos incorporados para o desenvolvimento do sistema-->
+ 		<link href="css/bootstrap.min.css" rel="stylesheet">
+ 		<script src="js/jquery-3.2.1.min.js"></script>
+ 		<script src="js/bootstrap.min.js"></script>
+ 		<link rel="stylesheet" type="text/css" href="meuestilo.css"/>
+ 		<script type="text/javascript" src="meuestilojs.js"></script>
+ 		<style type="text/css">
+			
+			@media only screen and (max-width: 575px) {
+    			table{display:block; width:auto; overflow-x: auto; white-space: nowrap;}
+  			}
+		</style>
+
+ 		
+ 		<script>
+			function myFunction() {
+  				// Declare variables 
+  				var input, filter, table, tr, td, i;
+  				input = document.getElementById("myInput");
+  				filter = input.value.toUpperCase();
+  				table = document.getElementById("myTable");
+  				tr = table.getElementsByTagName("tr");
+
+  				// Loop through all table rows, and hide those who don't match the search query
+  				for (i = 0; i < tr.length; i++) {
+    				td = tr[i].getElementsByTagName("td")[1];
+    				if (td) {
+      					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        					tr[i].style.display = "";
+      					} else {
+        					tr[i].style.display = "none";
+      					}
+    				} 
+  				}
+			}
+		</script>	
+ 		
+
+ 	</head>
+ 	
+ 	<!--Inicio do corpo da página-->
+ 	<body class="bodyFilmes">
+ 		<div class="container col-xs-12">
+ 			<!--Componente Navbar usada como componente principal para navegação entre as páginas do sistema  -->
+ 			<nav class="navbar navbar-default divHome">
+ 				<div class="container">
+ 					<!--Em caso de dispositivos menores a navbar terá um button, onde clicando abrirá os elementos da barra de navegação -->			
+ 					<div class="navbar-header">
+ 						<button type="button" class="navbar-toggle bttMenu" data-toggle="collapse"
+ 						data-target="#menu"><span class="glyphicon glyphicon-align-justify spMenu" aria-hidden="true"></span></button>
+ 						
+ 					</div>
+
+ 					<a class="navbar-brand logo2" href="#"><span class="glyphicon glyphicon-film slogo2"><span class="slogo3">FRANLOC</span></span></a>
+
+ 					<div class="collapse navbar-collapse col-xs-12" id="menu">
+
+
+ 						<!--Lista desordenada que serve como link para as páginas iniciais do sistema-->
+ 						<ul class="nav navbar-nav " id="navigation">
+ 							<!--Logo do sistema-->
+ 							<li><img src="IMG/logo1.png" alt="Imagem Logo" class="logo"></li>
+ 							<li class="home"><a href="index.html"><span>Home</span></a></li>
+			 				<li class="cadastro"><a href="cadastro.html"><span>Cadastro</span></a></li>
+			 				<li class="loca"><a href="login_reservas.html"><span>Reservas</span></a></li>
+			 				<li class="atende"><a href="atendente.html"><span>Atendente</span></a></li>
+			 				<li class="contato"><a href="contatos.html"><span>Infos</span></a></li>
+ 						</ul>
+ 						
+ 						<!--Botão para busca de filmes cadastrados no sistema-->
+				  		<div class="col-md-3 col-sm-4 col-xs-8 col-lg-3 formSearch">
+						    <div class="input-group">
+						      <span class="input-group-btn">
+						        <button class="btn btn-primary" type="button" data-toggle="tooltip" title="Pesquisar Filme"><span class="glyphicon glyphicon-search"></span></button>
+						      </span>
+						      <input type="text" name="nome_filme" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Search Film...">
+						    </div>
+						</div>
+ 					</div>	
+
+ 				</div>	
+ 			</nav>
+
+
+ 			<div class="container">
+ 				
+ 				<!--Componente Bootstrap Panel para exibir a tabela de filmes-->
+ 				<div class="panel panel-primary col-md-offset-1 col-md-10 col-xs-12 col-sm-offset-1 col-sm-10 col-lg-offset-1 col-lg-10">
+					<!-- Default panel contents -->
+				  	<div class="panel-heading">
+				  		<h3>Lista de Filmes</h3>
+				  	
+				  	</div >
+				  		
+				  		<!-- Tabela com os filmes e suas respectivas informações-->
+					  	<table class="table table-responsive" id="myTable">
+					    	<thead><tr class="info"><th>Código do Filme</th><th>Nome do filme</th><th>Ano Lançamento</th><th>Gênero</th><th>Opção</th><th>Informações</th></tr></thead>
+					    	<tbody><tr><td>01</td><td>Filme 1</td><td>2017</td><td>Terror</td><td><a href="login_reservas.html" class="btn btn-primary btn-sm">Reservar</a></td><td><button type="button" class="btn btn-sm btn-danger" data-toggle="popover" title="Filme 01" data-content="Nesse popover será exibido informações relevantes dos filmes exibidos. ">Info</button>
+							</td></tr>
+					    	
+					    	<tr><td>02</td><td>Filme 2</td><td>2017</td><td>Comédia</td><td><a href="login_reservas.html" class="btn btn-primary btn-sm">Reservar</a></td><td><button type="button" class="btn btn-sm btn-danger" data-toggle="popover" title="Filme 02" data-content="Nesse popover será exibido informações relevantes dos filmes exibidos. ">Info</button>
+							</td></tr>
+					    	
+					    	<tr><td>03</td><td>Filme 3</td><td>2017</td><td>Comédia</td><td><a href="login_reservas.html" class="btn btn-primary btn-sm">Reservar</a></td><td><button type="button" class="btn btn-sm btn-danger" data-toggle="popover" title="Filme 03" data-content="Nesse popover será exibido informações relevantes dos filmes exibidos. ">Info</button>
+							</td></tr>
+					    	
+					    	<tr><td>04</td><td>Filme 4</td><td>2017</td><td>Suspense</td><td><a href="login_reservas.html" class="btn btn-primary btn-sm">Reservar</a></td><td><button type="button" class="btn btn-sm btn-danger" data-toggle="popover" title="Filme 04" data-content="Nesse popover será exibido informações relevantes dos filmes exibidos. ">Info</button>
+							</td></tr></tbody>
+
+					  	</table>
+				</div>	
+	 	</div>
+
+	 	<!--Barra de rodape da página-->
+	 	<footer>	
+		 	<div class="rodape navbar navbar-inverse navbar-fixed-bottom">
+		 		<span class="glyphicon glyphicon-envelope"></span><strong> Email: wagnerfrana@hotmail.com</strong></br>
+				<strong>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></strong>
+		 	</div> 
+		</footer> 	
+
+ 			
+ 	</body>
+ 	
+
+</html>

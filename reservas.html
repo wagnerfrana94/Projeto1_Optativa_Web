@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+ 		<title>LOCADORA</title>
+ 		<meta charset="utf-8">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+ 		<!--Arquivos incorporados para o desenvolvimento do sistema-->
+ 		<script src="js/jquery-3.2.1.min.js"></script>
+ 		<script src="js/bootstrap.min.js"></script>
+ 		<link rel="stylesheet" type="text/css" href="meuestilo.css"/>
+ 		<script type="text/javascript" src="meuestilojs.js"></script>
+ 		<style>
+ 			@media only screen and (max-width: 575px) {
+    			table{display:block; width:auto; overflow-x: auto; white-space: nowrap;}
+  			}
+ 		</style>
+ 		
+
+		<script type="text/javascript">
+			
+			function myFunction() {
+				
+  				// Declare variables 
+  				var input, filter, table, tr, td, i;
+  				input = document.getElementById("myInput");
+  				filter = input.value.toUpperCase();
+  				table = document.getElementById("myTable");
+  				tr = table.getElementsByTagName("tr");
+
+  				// Prenchimento da tabela de fimes através da pesquisa
+  				for (i = 0; i < tr.length; i++) {
+    				td = tr[i].getElementsByTagName("td")[1];
+    				if (td) {
+      					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      						$(".tableReserva").show();
+        					tr[i].style.display = "";
+
+      					} else {
+        					tr[i].style.display = "none";
+        					
+      					}
+    				} 
+  				}
+  				
+			}
+
+			$(document).ready(function(){
+				$(".tableReserva").hide();
+				$(".tableReservaAdd").hide();
+				lenTable();
+				
+				function lenTable(){
+					var len = $(".tableReservaAdd tr").length;
+
+					if(len > 2){
+						$(".botaoFinalizarReserva").show();
+					}else{
+						$(".botaoFinalizarReserva").hide();
+						$(".tableReservaAdd").hide();
+					}
+				}	
+
+				$('.tableReservaAdd').delegate('.excluirReserva', 'click', function() {
+					var tr = $(this).closest('tr');  
+    				
+    				tr.remove();
+    				$(".tableReserva").prepend(tr);
+					$(".tableReserva .excluirReserva").text("Add à Reservas").css("background-color", "#3366FF");
+    				$(".tableReserva .excluirReserva").addClass("addReservas");
+    				$(".tableReserva .addReservas").removeClass("excluirReserva");
+    				lenTable();
+    				
+				});
+
+
+				$(".botaoFinalizarReserva").click(function(){
+					$(".tableReservaAdd .excluirReserva").html("<span class='glyphicon glyphicon-check'></span>").css("background-color", "green");
+					$(".tableReservaAdd .excluirReserva").attr("disabled", "disabled");
+					$(".tableReservaAdd").hide();
+					$(".tableReserva").hide();
+					alert("Reserva Efetuada Com Sucesso");
+
+
+				});
+
+				$(".Sair").click(function(){
+					$(".modalSenha").modal('hide');	
+
+				});
+
+				$(".fazerReserva").click(function(){
+
+					$(".tableReserva").toggle();
+					$(".inpPesq").val("");
+					$(".tableReserva tr").show();
+					
+				});
+
+				$(".btnCarrinho").click(function(){
+					$(".tableReservaAdd").toggle();
+
+					
+				});
+
+				$(".botaoReserva").click(function(){
+					$(".tableReserva").hide();
+					
+				});
+
+				$(".botaoSair").click(function(){
+					$(".tableReservaAdd").hide();
+					
+				});
+
+				$(".editarCadastro").click(function(){
+					$(".tableReserva").hide();
+					$(".tableReservaAdd").hide();
+					
+				});
+
+    			
+				$('.tableReserva').delegate('.addReservas', 'click', function() {
+       				var tr = $(this).closest('tr');  
+    				
+    				tr.remove();
+    				$(".tableReservaAdd").prepend(tr);
+
+    				$(".tableReservaAdd .addReservas").text("Excluir da Reserva").css("background-color","red");
+    				$(".tableReservaAdd .addReservas").addClass("excluirReserva");
+    				$(".tableReservaAdd .addReservas").removeClass("addReservas");
+    				
+    				lenTable();
+    				
+				});
+
+				
+				
+				
+
+					
+
+			});	
+
+			
+				
+		</script>	
+ 		
+ 	</head>
+ 	
+ 
+ 	<body class="bodyReserva">
+ 		<div class="container">
+ 			<nav class="navbar navbar-default navReserva">
+  				<div class="container-fluid">
+    				<!-- Cria grupo de li's quando tela for pra mobile-->
+    				<div class="navbar-header">
+      					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        					<span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					    </button>
+      					<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-film slogo2"><span class="slogo3">FRANLOC</span></span></a>
+    				</div>
+    				<!-- Collect the nav links, forms, and other content for toggling -->
+    				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      					<ul class="nav navbar-nav">
+      						<div class="btn-group btn-group-lg" role="group" >
+	        					<button class="btn btn-default btReserva fazerReserva" data-toggle="modal" data-target="#exampleModal2">Fazer Reserva<span class="sr-only">(current)</span></button>
+	        					<button class="btn btn-default btReserva editarCadastro" data-toggle="modal" data-target="#exampleModal">Editar Cadastro</button>
+        					</div>
+      					</ul>
+      					<!-- Menu dropdow de logoff e pra logar com outro usuário -->
+      					<ul class="nav navbar-nav navbar-right">
+        					<li class="dropdown">
+          						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+          						<ul class="dropdown-menu">
+            						<li><a href="login_reservas.html"><span class="glyphicon glyphicon-user"></span> Trocar de Usuário</a></li>
+            						<li role="separator" class="divider"></li>
+            						<li><a href="index.html"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
+          						</ul>
+        					</li>
+      					</ul>
+
+      					<div class="navbar-form navbar-right">
+					        
+					        <div class="input-group">
+						      	<span class="input-group-btn">
+						        	<button class="btn btn-primary" type="button" data-toggle="tooltip" title="Pesquisar Filme"><span class="glyphicon glyphicon-search"></span></button>
+						      	</span>
+						      	<input type="text" name="nome_filme" id="myInput" onkeyup="myFunction()" class="form-control inpPesq" placeholder="Search Film...">
+						    </div>
+					        
+					    </div>
+
+					    <button class="btn btn-default navbar-right btnCarrinho col-sm-3"><span class="glyphicon glyphicon-shopping-cart" data-toggle="tooltip" title="Reservas Atuais"></span> Reservas Atuais</button>
+      
+      					
+    				</div><!-- /.navbar-collapse -->
+  				</div><!-- /.container-fluid -->
+			</nav>
+
+			<!--Modal contendo formulário para o usuário informar edição cadastral-->
+			<div class="modal fade modalSenha" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+			  	<div class="modal-dialog" role="document">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+			        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        		<h4 class="modal-title text-primary" id="exampleModalLabel1">Edição Cadastral</h4>
+			      		</div>
+			      		<div class="modal-body">
+			        		<form method="post" action=" ">
+			        			<div class="form-group">
+			           	 			<label for="nome" class="control-label">Nome:</label>
+			            			<input type="text" class="form-control" id="nome" value="Fulano de Tal" disabled="">
+			          			</div>
+			          			<div class="form-group">
+			           	 			<label for="cpf" class="control-label">CPF:</label>
+			            			<input type="text" class="form-control" id="cpf" value="XXXXXXXXXXX" placeholder="CPF" disabled="">
+			          			</div>
+			        			
+			          			<div class="form-group">
+			           	 			<label for="email" class="control-label">Email:</label>
+			            			<input type="email" class="form-control" id="email" placeholder="Email">
+			          			</div>
+			          			<div class="form-group">
+			           	 			<label for="tel" class="control-label">Celular:</label>
+			            			<input type="tel" class="form-control" id="tel"  placeholder="Cel Formato: (XX)XXXXX-XXXX" required pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}$">
+			          			</div>
+			          			<div class="form-group">
+			           	 			<label for="login" class="control-label">Login:</label>
+			            			<input type="text" class="form-control" id="login" placeholder="Login" maxlength="6">
+			          			</div>
+			          			<div class="form-group">
+			           	 			<label for="new_senha" class="control-label">Senha:</label>
+			            			<input type="text" class="form-control" id="new_senha" placeholder="Senha" maxlength="6"/>
+			          			</div>
+			        		</form>
+			      		</div>
+			      		<div class="modal-footer">
+			        		<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			        		<button type="button" class="Sair btn btn-primary">Enviar Dados</button>
+			      		</div>
+			   
+			   		</div>
+			  	</div>
+			</div>
+
+				
+			<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+			<!-- Tabela com os filmes e suas respectivas informações-->
+				<table class="table table-responsive tableReserva" id="myTable">
+			    	<thead><tr class="info"><th>Código do Filme</th><th>Nome do filme</th><th>Ano Lançamento</th><th>Gênero</th><th>Opção</th></tr></thead>
+			    	<tbody><tr><td>01</td><td>Filme 1</td><td>2017</td><td>Terror</td><td><button class="btn btn-primary btn-sm addReservas btCor">Add à Reservas</button></td></tr>
+			    	
+			    	<tr><td>02</td><td>Filme 2</td><td>2017</td><td>Comédia</td><td><button class="btn btn-primary btn-sm addReservas btCor">Add à Reservas</button></td></tr>
+			    	
+			    	<tr><td>03</td><td>Filme 3</td><td>2017</td><td>Comédia</td><td><button class="btn btn-primary btn-sm addReservas btCor">Add à Reservas</button></td></tr>
+			    	
+			    	<tr><td>04</td><td>Filme 4</td><td>2017</td><td>Suspense</td><td><button class="btn btn-primary btn-sm addReservas btCor">Add à Reservas</button></td></tr>
+
+					<tr><td><div><button class="btn btn-danger botaoReserva"><span class="glyphicon glyphicon-remove-sign"></span> Sair</button></div></td><td></td><td></td><td></td><td></td></tr>
+
+					
+					</tbody>
+
+				</table>
+
+
+			</div>
+
+			<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+			<!-- Tabela da reserva com os filmes momentaneamente reservados e suas respectivas informações-->
+				<table class="table table-responsive tableReservaAdd">
+			    	<thead><tr class="info "><th>Código do Filme</th><th>Nome do filme</th><th>Ano Lançamento</th><th>Gênero</th><th>Opção</th></tr></thead>
+			    	<tbody>
+
+					<tr><td><div><button class="btn btn-danger botaoSair col-sm-12"><span class="glyphicon glyphicon-remove-sign"></span> Sair</button><button class="btn btn-primary botaoFinalizarReserva col-sm-12"><span class="glyphicon glyphicon-ok"></span> Concluir</button></div></td><td></td><td></td><td></td><td></td></tr>
+
+					</tbody>
+
+				</table>
+
+				
+			</div>   			
+
+ 		</div>
+
+ 	</body>
+ </html>		
