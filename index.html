@@ -20,6 +20,8 @@
 		</style>
 
  		<script>
+
+ 			//Esconde rodape ao clicar botão de menu em dispositivos menores
  			$(document).ready(function(){
  				$(".bttMenu").click(function(){
  					$(".rodape").toggle();
@@ -51,7 +53,7 @@
  						<!--Lista desordenada que serve como link para as páginas iniciais do sistema-->
  						<ul class="nav navbar-nav " id="navigation">
  							<!--Logo do sistema-->
- 							<li><img src="IMG/logo1.png" alt="Imagem Logo" class="logo"></li>
+ 							<li><img src="IMG/logo1.png" alt="Imagem de Logo do Site" class="logo hidden-print"></li>
  							<li class="home"><a href="index.html"><span>Home</span></a></li>
  							<li class="filme"><a href="filmes.html"><span>Filmes</span></a></li>
 			 				<li class="cadastro"><a href="cadastro.html"><span>Cadastro</span></a></li>
@@ -65,7 +67,7 @@
  				</div>	
  			</nav>
 
- 			<!--Slide dos filmes na tela iniciaL-->
+ 			<!--Slide dos filmes na tela inicial, contendo link para trailler-->
 	 		<div class="container col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 col-lg-8 col-lg-offset-2" >
 				<div id="carousel-example-generic" class="carousel slide hidden-print" data-ride="carousel">
         
@@ -73,7 +75,7 @@
           				<div class="item active">
             
 				            <a href="https://www.youtube.com/watch?v=iUJXje976RM" target="_blank">
-				            <img clas="imgSlide" data-src="holder.js/640x500/auto/#777:#555/text:First slide" alt="Imagem Filme" src="IMG/rei.jpg" data-holder-rendered="true">
+				            <img clas="imgSlide" data-src="holder.js/640x500/auto/#777:#555/text:First slide" alt="Imagem do Filme Rei Arthur" src="IMG/rei.jpg" data-holder-rendered="true">
 				            <span>
 				              <b id="bSlide"> Rei Arthur </b><br/>
 				            </span>
@@ -82,7 +84,7 @@
 
           				<div class="item">
 				            <a href="https://youtu.be/LnH_qWviqis" target="_blank">
-				            <img clas="imgSlide" src="IMG/pr.jpg" data-src="holder.js/640x500/auto/#777:#555/text:Second slide" alt="Imagem filme" class="img-responsive" data-holder-rendered="true"/>
+				            <img clas="imgSlide" src="IMG/pr.jpg" data-src="holder.js/640x500/auto/#777:#555/text:Second slide" alt="Imagem do filme Power Rangers 2017" class="img-responsive" data-holder-rendered="true"/>
 				            <span>
 				              <b id="bSlide">Power Rangers 2017</b><br/>
 				            </span>
@@ -92,7 +94,7 @@
           
           				<div class="item">
 				            <a href="https://youtu.be/KvSlvtPnZTo" target="_blank">
-				            <img clas="imgSlide" data-src="holder.js/1000x500/auto/#666:#444/text:Three slide" alt="Imagem Filme" src="IMG/velozes8.jpg" data-holder-rendered="true" >
+				            <img clas="imgSlide" data-src="holder.js/1000x500/auto/#666:#444/text:Three slide" alt="Imagem do Filme Velozes e Furiosos 8" src="IMG/velozes8.jpg" data-holder-rendered="true" >
 				            <span >
 				              <b id="bSlide">Velozes e Furiosos 8</b><br/> 
 				            </span>
@@ -102,7 +104,7 @@
 
 				         <div class="item">
 				            <a href="https://youtu.be/KPND6SgkN7Q" target="_blank">
-				            <img clas="imgSlide" data-src="holder.js/800x300/auto/#666:#444/text:Second slide" alt="Imagem Filme" src="IMG/logan.jpg" class="img-responsive">
+				            <img clas="imgSlide" data-src="holder.js/800x300/auto/#666:#444/text:Second slide" alt="Imagem do Filme Logan" src="IMG/logan.jpg" class="img-responsive">
 				            <span>
 				              <b id="bSlide">Logan</b><br/> 
 				            </span>
@@ -110,6 +112,7 @@
           				</div>
         			</div>
 
+        			<!--Links para passar os slides-->
 			        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 			          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 			          <span class="sr-only">Previous</span>
@@ -121,6 +124,7 @@
       			</div>
       		</div>
 	 	</div>
+	 	
 	 	<!--Barra de rodape da página-->	
 	 	<footer>	
 		 	<div class="rodape navbar navbar-inverse navbar-fixed-bottom">

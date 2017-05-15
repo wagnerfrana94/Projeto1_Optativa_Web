@@ -11,20 +11,60 @@
  		<script src="js/bootstrap.min.js"></script>
  		<link rel="stylesheet" type="text/css" href="meuestilo.css"/>
  		<script type="text/javascript" src="meuestilojs.js"></script>
+ 		<script src="js/jquery.validate.min.js"></script>
+
  		<style type="text/css">
 			
 			@media only screen and (max-width: 770px) {
     			.rodape{
        				display: block;
     			}
+
   			}
+			
+			input:invalid { border: 1px solid red; }
+			input:valid { border: 1px solid green; }
+ 			.error{
+        	    color:red;
+        	    
+       		}
+
 		</style>
 
  		<script>
  			$(document).ready(function(){
  				$(".bttMenu").click(function(){
  					$(".rodape").toggle();
- 				});	
+ 				});
+
+ 				$(".formReserva").validate({
+         			rules : {
+         				login:{
+         					required:true,
+         					rangelength:[6,6]
+         				},
+
+         				senha:{
+         					required:true,
+         					rangelength:[6,6]
+         				}                                
+   					},
+   					messages:{
+   						login:{
+   							required:"Por favor, informe um login",
+         					rangelength:"Por favor, informe um login com 6 dígitos"
+   						},
+
+   						senha:{
+   							required:"Por favor, informe uma senha",
+         					rangelength:"Por favor, informe uma senha de 6 dígitos"
+   						}	
+
+
+   					}
+
+				});
+
  			});	
 
  		</script>	
@@ -52,7 +92,7 @@
  						<!--Lista desordenada que serve como link para as páginas iniciais do sistema-->
  						<ul class="nav navbar-nav " id="navigation">
  							<!--Logo do sistema-->
- 							<li><img src="IMG/logo1.png" alt="Imagem Logo" class="logo"></li>
+ 							<li><img src="IMG/logo1.png" alt="Imagem Logo do Sistema" class="logo"></li>
  							<li class="home"><a href="index.html"><span>Home</span></a></li>
  							<li class="filme"><a href="filmes.html"><span>Filmes</span></a></li>
 			 				<li class="cadastro"><a href="cadastro.html"><span>Cadastro</span></a></li>
@@ -72,13 +112,13 @@
  					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-		 					<input class="form-control" type="text" name="login" autofocus placeholder="Login do Usuário" required/>
+		 					<input class="form-control" type="text" name="login" autofocus placeholder="Login do Usuário" required maxlength="6" />
 		 				</div>
 		 			</div>		
 	 				<div class="form-group">	
 						<div class="input-group">
 					    	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-		 					<input class="form-control" type="password" name="senha" placeholder="Senha" required/>
+		 					<input class="form-control" type="password" name="senha" placeholder="Senha" required maxlength="6"/>
 		 				</div>
 		 			</div>	
 		 			
@@ -94,6 +134,8 @@
 		 						<div class="well well-sm">
 		 							<a class="aCadastrase" href="cadastro.html">Cadastrar-se</a></br>
 		 						</div>
+
+		 						<!-- Para levar o usuário até a criação de nova senha -->
 								<a id ="recuperar_senha" href="" class="alertSenha" data-toggle="modal" data-target="#exampleModal">Esqueci minha senha</a> 
 		 						
 		 					</div>
