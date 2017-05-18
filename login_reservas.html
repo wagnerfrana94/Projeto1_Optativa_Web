@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
- 		<title>LOCADORA</title>
+ 		<title>LOCADORA - Login do Usuário</title>
  		<meta charset="utf-8">
  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -86,6 +86,8 @@
 
  					<a class="navbar-brand logo2" href="#"><span class="glyphicon glyphicon-film slogo2"><span class="slogo3">FRANLOC</span></span></a>
 
+ 					<a accesskey="1" class="sr-only" href="#conteudo">Conteúdo principal <span>1</span></a>
+
  					<div class="collapse navbar-collapse col-xs-12" id="menu">
 
 
@@ -104,7 +106,7 @@
  				</div>	
  			</nav>
 
- 			<div class="container col-md-offset-3 col-md-6 col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6">
+ 			<div class="container col-md-offset-3 col-md-6 col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6" id="conteudo">
 
  				<!--Formulário para efetuar o login de um usuário cadastrado no sistema de reservas -->
  				<form class="form-horizontal formReserva" action="reservas.html" method="post">
@@ -112,13 +114,13 @@
  					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-		 					<input class="form-control" type="text" name="login" autofocus placeholder="Login do Usuário" required maxlength="6" />
+		 					<input class="form-control" type="text" name="login" autofocus placeholder="Login do Usuário" maxlength="6" required autocomplete="off"/>
 		 				</div>
 		 			</div>		
 	 				<div class="form-group">	
 						<div class="input-group">
 					    	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-		 					<input class="form-control" type="password" name="senha" placeholder="Senha" required maxlength="6"/>
+		 					<input class="form-control" type="password" name="senha" placeholder="Senha" maxlength="6" required autocomplete="off" />
 		 				</div>
 		 			</div>	
 		 			

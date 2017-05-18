@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
- 		<title>LOCADORA</title>
+ 		<title>LOCADORA - Reservas</title>
  		<meta charset="utf-8">
  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
  		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,29 +27,40 @@
   				var input, filter, table, tr, td, i;
   				input = document.getElementById("myInput");
   				filter = input.value.toUpperCase();
-  				table = document.getElementById("myTable");
-  				tr = table.getElementsByTagName("tr");
+	  			if(filter.length > 0){	
+	  				table = document.getElementById("myTable");
+	  				tr = table.getElementsByTagName("tr");
+	  				var cont=0;
+	  				// Prenchimento da tabela de fimes através da pesquisa
+	  				for (i = 0; i < tr.length; i++) {
+	    				td = tr[i].getElementsByTagName("td")[1];
+	    				if (td) {
+	      					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	      						$(".tableReserva").show();
+	        					tr[i].style.display = "";
+	        					$(".msgErro").hide();
+	        					cont++;
 
-  				// Prenchimento da tabela de fimes através da pesquisa
-  				for (i = 0; i < tr.length; i++) {
-    				td = tr[i].getElementsByTagName("td")[1];
-    				if (td) {
-      					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-      						$(".tableReserva").show();
-        					tr[i].style.display = "";
+	      					} else {
+	        					tr[i].style.display = "none";
+	        					
+	      					}
+	    				} 
+	  				}
+	  				
+	  				if(cont<1){
+	  					$(".tableReserva").hide();
+	  					$(".msgErro").show().html("<p>Filme não encontrado !<p>");
 
-      					} else {
-        					tr[i].style.display = "none";
-        					
-      					}
-    				} 
+  					}
   				}
-  				
 			}
 
 			$(document).ready(function(){
 				$(".tableReserva").hide();
 				$(".tableReservaAdd").hide();
+				$(".msgErro").hide();
+
 				lenTable();
 				
 				function lenTable(){
@@ -92,7 +103,7 @@
 				});
 
 				$(".fazerReserva").click(function(){
-
+					$(".msgErro").hide();
 					$(".tableReserva").toggle();
 					$(".inpPesq").val("");
 					$(".tableReserva tr").show();
@@ -101,7 +112,7 @@
 
 				$(".btnCarrinho").click(function(){
 					$(".tableReservaAdd").toggle();
-
+					$(".msgErro").hide();
 					
 				});
 
@@ -118,7 +129,7 @@
 				$(".editarCadastro").click(function(){
 					$(".tableReserva").hide();
 					$(".tableReservaAdd").hide();
-					
+					$(".msgErro").hide();
 				});
 
     			
@@ -202,6 +213,8 @@
     				</div><!-- /.navbar-collapse -->
   				</div><!-- /.container-fluid -->
 			</nav>
+
+			<div class="alert alert-danger msgErro col-xs-12 col-sm-8 col-sm-offset-2" role="alert"></div>
 
 			<!--Modal contendo formulário para o usuário informar edição cadastral-->
 			<div class="modal fade modalSenha" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">

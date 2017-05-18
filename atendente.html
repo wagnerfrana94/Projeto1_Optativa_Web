@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
- 		<title>LOCADORA</title>
+ 		<title>LOCADORA - Atendente</title>
  		<meta charset="utf-8">
  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -89,6 +89,8 @@
 
  					<a class="navbar-brand logo2" href="#"><span class="glyphicon glyphicon-film slogo2"><span class="slogo3">FRANLOC</span></span></a>
 
+ 					<a accesskey="1" class="sr-only" href="#conteudo">Conteúdo principal <span>1</span></a>
+
  					<div class="collapse navbar-collapse col-xs-12" id="menu">
 
 
@@ -108,19 +110,19 @@
  				</div>	
  			</nav>
  			<!--Formulario para login dos atendentes do sistema-->
- 			<div class="container col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 divAtendente"> 
+ 			<div class="container col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 divAtendente" id="conteudo"> 
  				<h2 class="text-primary">Login do Atendente</h2>
 				<form class="formAtendente" action="" method="post">
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-					    	<input type="text" class="form-control" id="login" placeholder="Login" name="login" autofocus required>
+					    	<input type="text" class="form-control" id="login" placeholder="Login" name="login" autofocus required autocomplete="off">
 						</div>
 					</div>
 					<div class="form-group">	
 						<div class="input-group">
 					    	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-					    	<input type="password" class="form-control" id="senha" placeholder="Senha" name="senha" required>
+					    	<input type="password" class="form-control" id="senha" placeholder="Senha" name="senha" required autocomplete="off">
 						</div>
 					</div>   
 
